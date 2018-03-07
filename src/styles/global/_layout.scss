@@ -1,3 +1,218 @@
 // - - - - - - - - - - - - - - - - - - -
 // - - layout
 // global layout classes - height, width, padding, margin, etc.
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+* {
+  font-family: $font-family;
+  color: $dark-grey;
+  line-height: $font-height;
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// grid
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and (min-width: $breakpoint-small) {
+    width: 80%;
+  }
+
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row [class^="col"] {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: $width;
+}
+
+.col-1-sm { width:($width / 12) - ($gutter * 11 / 12); }
+.col-2-sm { width: ($width / 6) - ($gutter * 10 / 12); }
+.col-3-sm { width: ($width / 4) - ($gutter * 9 / 12); }
+.col-4-sm { width: ($width / 3) - ($gutter * 8 / 12); }
+.col-5-sm { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+.col-6-sm { width: ($width / 2) - ($gutter * 6 / 12); }
+.col-7-sm { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+.col-8-sm { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+.col-9-sm { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+.col-10-sm { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+.col-11-sm { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+.col-12-sm { width: $width; }
+
+@media only screen and (min-width: $breakpoint-med) {
+  .col-1-md { width:($width / 12) - ($gutter * 11 / 12); }
+  .col-2-md { width: ($width / 6) - ($gutter * 10 / 12); }
+  .col-3-md { width: ($width / 4) - ($gutter * 9 / 12); }
+  .col-4-md { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-5-md { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  .col-6-md { width: ($width / 2) - ($gutter * 6 / 12); }
+  .col-7-md { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  .col-8-md { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  .col-9-md { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  .col-10-md { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  .col-11-md { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-12-md { width: $width; }
+
+  .hidden-sm {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: $breakpoint-large) {
+  .col-1 { width:($width / 12) - ($gutter * 11 / 12); }
+  .col-2 { width: ($width / 6) - ($gutter * 10 / 12); }
+  .col-3 { width: ($width / 4) - ($gutter * 9 / 12); }
+  .col-4 { width: ($width / 3) - ($gutter * 8 / 12); }
+  .col-5 { width: ($width / (12 / 5)) - ($gutter * 7 / 12); }
+  .col-6 { width: ($width / 2) - ($gutter * 6 / 12); }
+  .col-7 { width: ($width / (12 / 7)) - ($gutter * 5 / 12); }
+  .col-8 { width: ($width / (12 / 8)) - ($gutter * 4 / 12); }
+  .col-9 { width: ($width / (12 / 9)) - ($gutter * 3 / 12); }
+  .col-10 { width: ($width / (12 / 10)) - ($gutter * 2 / 12); }
+  .col-11 { width: ($width / (12 / 11)) - ($gutter * 1 / 12); }
+  .col-12 { width: $width; }
+}
+
+
+// - - - - - - - - - - - - - - - - - - -
+// Flex
+
+[class^="flex"] {
+  display: flex;
+}
+
+//flex-direction
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse;
+}
+
+//flex-wrap
+.flex-wrap {
+  flex-wrap: row;
+}
+
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+
+//justify-content
+.flex-jc-start {
+  justify-content: flex-start;
+}
+
+.flex-jc-end {
+  justify-content: flex-end;
+}
+
+.flex-jc-center {
+  justify-content: center;
+}
+
+.flex-jc-between {
+  justify-content: space-between;
+}
+
+.flex-jc-around {
+  justify-content: space-around;
+}
+
+.flex-jc-evenly {
+  justify-content: space-evenly;
+}
+
+//align-content
+.flex-ac-start {
+  align-content: flex-start;
+}
+
+.flex-ac-end {
+  align-content: flex-end;
+}
+
+.flex-ac-center {
+  align-content: center;
+}
+
+.flex-ac-between {
+  align-content: space-between;
+}
+
+.flex-ac-around {
+  align-content: space-around;
+}
+
+//align-item
+.flex-item-start {
+  align-items: flex-start;
+}
+
+.flex-item-end {
+  align-items: flex-end;
+}
+
+.flex-item-center {
+  align-items: center;
+}
+
+
