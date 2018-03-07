@@ -39,13 +39,13 @@
 // - - - - - - - - - - - - - - - - - - -
 // - - Fixed positions
 .fixed-bottom {
-	position: fixed;
+	position: fixed !important;
 	bottom: 0;
 	left: 0;
 }
 
 .fixed-top {
-	position: fixed;
+	position: fixed !important;
 	top: 0;
 	left: 0;
 }

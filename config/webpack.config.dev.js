@@ -1,5 +1,3 @@
-'use strict';
-
 const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
@@ -11,6 +9,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -190,41 +189,10 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            use: [
-              {
-                loader: require.resolve('style-loader'),
-              },
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                }
-              },
-              {
-                loader: require.resolve('sass-loader'),
-              },
-              {
-                loader: require.resolve('resolve-url-loader'),
-              },
-              {
-                loader: require.resolve('postcss-loader'),
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9',  
-                      ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              }, 
-            ]
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: ['css-loader', 'sass-loader']
+            })
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -253,6 +221,7 @@ module.exports = {
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In development, this will be an empty string.
+    new ExtractTextPlugin('style.css'),
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({

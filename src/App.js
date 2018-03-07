@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
-import { 
-  BrowserRouter as Router, 
-  Route
-} from 'react-router-dom';
-import {
-  BrowserView, 
-  MobileView, 
-  isBrowser, 
-  isMobile
-} from 'react-device-detect';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
 
 //Layot
 import Nav from './components/Nav';
 
 const Home = () => (
-  <div>
-    <h2>Home</h2>
+  <div class="row">
+    <div class="card">
+      <p>Home</p>
+    </div>
+    <div class="card">
+      <p>asda</p>
+    </div>
+    <div class="card">
+      <p>asdas</p>
+    </div>
+    <div class="card">
+      <p>Home</p>
+    </div>
+    <div class="card">
+      <p>asda</p>
+    </div>
+    <div class="card">
+      <p>asdas</p>
+    </div>
+    <div class="card">
+      <p>Home</p>
+    </div>
+    <div class="card">
+      <p>asda</p>
+    </div>
+    <div class="card">
+      <p>asdas</p>
+    </div>
   </div>
 )
 
@@ -36,7 +54,13 @@ class App extends Component {
       <Router>
         <div className="app">
           <MobileView device={isMobile}>
+              <Nav /> 
               <h1> This is rendered only on mobile </h1>
+              <main className="col s12 m10">          
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  <Route path="/topics" component={Topics}/>
+              </main>
           </MobileView>
 
           <BrowserView device={isBrowser}>

@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
-import { 
-  BrowserRouter as Router, 
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
 
 
 
-class Nav extends Component {
+class Nav extends Component {  
+  
+  renderNav = () => {
+    if (isMobile) {
+        const nav = 
+          <nav class="n-row flex-jc-around fixed-bottom">
+            <div>
+              1
+            </div>
+            <div>
+              2
+            </div>
+            <div>
+              3
+            </div>
+            <div>
+              4
+            </div>
+            <div>
+              5
+            </div>
+          </nav>
+        ;
+        return nav
+    }
+    return <div> ...content </div>
+  }
+
   render() {
-    return (
-      <div className="col s12 m2">
-        <ul className="row">
-          <li className="col s12"><Link to="/buttons">Buttons</Link></li>
-          <li className="col s12"><Link to="/about">Grid</Link></li>
-          <li className="col s12"><Link to="/topics">Helpers</Link></li>
-          <li className="col s12"><Link to="/topics">Color</Link></li>
-          <li className="col s12"><Link to="/topics">Product Hero</Link></li>
-          <li className="col s12"><Link to="/topics">Product Item</Link></li>
-        </ul>
-      </div>
-    );
+    return this.renderNav();
   }
 }
 
