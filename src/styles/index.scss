@@ -48,6 +48,11 @@
 @import 'modules/modules';
 
 // - - - - - - - - - - - - - - - - - - -
+// - - modules
+// add new modules to the modules/_modules.scss file and they'll get pulled in here.
+@import 'global/buttons';
+
+// - - - - - - - - - - - - - - - - - - -
 // - - inbox
 // the inbox allows developers, and those not actively working on the project
 // to quickly add styles that are easily seen by the maintainer of the file.

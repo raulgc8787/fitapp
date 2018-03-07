@@ -1,3 +1,27 @@
 // - - - - - - - - - - - - - - - - - - -
 // - - skin
 // global skin styles - gradients, colors, box-shadows, etc.
+
+// - - - - - - - - - - - - - - - - - - -
+// - - shadows
+.shadow-0 {
+  box-shadow: none !important;
+}
+.shadow-1 {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+}
+.shadow-1-half {
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+.shadow-2 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.10);
+}
+.shadow-3 {
+  box-shadow: 0 6px 12px 0 rgba(0,0,0,0.10);
+}
+.shadow-4 {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.10);
+}
+.shadow-5 {
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.10);
+}
