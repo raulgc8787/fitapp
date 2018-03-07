@@ -35,3 +35,17 @@
 .hidden-sm {
   display: none;
 }
+
+// - - - - - - - - - - - - - - - - - - -
+// - - Fixed positions
+.fixed-bottom {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+.fixed-top {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
