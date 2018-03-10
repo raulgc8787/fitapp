@@ -5,6 +5,7 @@ import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detec
 
 //Layot
 import Nav from './components/Nav';
+import Dashboard from './components/dashboard';
 
 const Home = () => (
   <div class="row">
@@ -55,9 +56,8 @@ class App extends Component {
         <div className="app">
           <MobileView device={isMobile}>
               <Nav /> 
-              <h1> This is rendered only on mobile </h1>
               <main className="col s12 m10">          
-                  <Route exact path="/" component={Home}/>
+                  <Route exact path="/" component={Dashboard}/>
                   <Route path="/about" component={About}/>
                   <Route path="/topics" component={Topics}/>
               </main>
